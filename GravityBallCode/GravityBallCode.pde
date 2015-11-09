@@ -36,5 +36,7 @@ void draw() {
   } else if (y - diam/2 <= 0) {
     velY = abs(velY);
   }
-  
+    if (y + diam/2 >= height) {
+    y = height - diam/2;
+  }
 }
