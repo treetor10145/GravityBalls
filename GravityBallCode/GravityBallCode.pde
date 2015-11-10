@@ -3,6 +3,7 @@ float [] x = new float[30];
 float [] y = new float[30];
 float [] velX = new float[30];
 float [] velY = new float[30];
+float [] fill = new float[30];
 float gravity;
 float diam;
 
@@ -19,6 +20,8 @@ void setup() {
     gravity = 0.2;
     diam = 80;
   }
+  textSize(50);
+  textAlign(CENTER);
 }
 
 void draw() {
@@ -28,6 +31,7 @@ void draw() {
   //draw ball
    for (int i = 0; i < 30; i++){
   //draw ball
+    fill(255,255,255);
     ellipse(x[i], y[i], diam, diam); 
     //add velocity to position
     velY[i] += gravity;
@@ -48,6 +52,10 @@ void draw() {
   }
   if (y[i] + diam/2 >= height) {
     y[i] = height - diam/2;
+  }
+  if (dist(mouseX,mouseY,x[i],y[i]) <= diam /2) {
+   fill(random(256),random(256),random(256));
+   text("Bouncing Balls", width/2, height/2);
   }
  }
 }
